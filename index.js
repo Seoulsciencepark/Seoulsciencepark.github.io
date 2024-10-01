@@ -24,6 +24,7 @@ return (number%modulo+modulo)%modulo;
 const websiteLink="http://127.0.0.1:5500/index.html";
 const textFileDirectory="/textfiles"
 const audioFileDirectory="/mp3files"
+const mainImageDirectory="/images"
 
 // 브라우저의 URL 중 쿼리 파싱
 //window.location.search는 url에서 ?부터끝까지의값(즉 쿼리 파싱))
@@ -65,6 +66,10 @@ title.innerText = nameList[index];
 //오디오로드
 const audioPlayer = document.getElementById("audio")
 audioPlayer.src= audioFileDirectory+"/"+itemNo+lang+".mp3"
+
+//이미지로드
+const mainImage = document.getElementById("mainImage")
+mainImage.src= mainImageDirectory+"/"+itemNo+".jpeg"
 
 // 다음 페이지와 이전 페이지
 

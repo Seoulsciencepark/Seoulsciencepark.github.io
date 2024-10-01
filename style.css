@@ -5,8 +5,8 @@
 }
 
 body{
-    background-image: url('../images/longer2.jpg');
-    /*background-color: gray;*/
+   /*background-image: url('../images/longer2.jpg');*/
+    background-color: white;
 }
 
 audio{
@@ -14,7 +14,7 @@ audio{
 }
 
 .audioContainer {
-    margin-top: 20%;
+    margin-top: 0%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,18 +28,33 @@ iframe {
     border: none; 
 }
 
+.imageContainer{
+    text-align: center;
+}
+
+.piece-image {
+
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+
+}
+
 #title{
     font-family: custom;
-    color:white;
+    color:black;
     text-align: center;
+    margin-bottom: 0;
 }
 
 
 .mainText{
     font-family: custom;
-    color:white;
-    text-align: center;
+    color:black;
+    text-align: left;
     font-size: 20px;
+    margin-left: 20px;
 
 }
 
@@ -48,10 +63,19 @@ pre {
     font-size: 20px;
  }
 
+ .piece-image {
+    width: 95%;            /* Make the image responsive */
+    border: 2px solid #333;  /* Add a 5px solid border for the frame */
+    border-radius: 10px;     /* Optional: Add rounded corners to the frame */
+}
+
+
 
  .container{
-    width: 80%;
+    width: 90%;
     margin: auto;
+    border: 1px solid #333;  /* Add a 5px solid border for the frame */
+    border-radius: 10px;     /* Optional: Add rounded corners to the frame */
  }
 
 .changePageContainer{
@@ -81,8 +105,8 @@ button {
     background-image: url(images/lang.png);
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    height: 43px;
-    width: 43px;
+    height:36px;
+    width: 36px;
     border: none;
     background-color: transparent;
   }
@@ -91,7 +115,9 @@ button {
 .dropdown {
     float: right;
     position: relative;
+    margin-top: 0;
     margin-right:5%
+    
   }
 
   .dropContent{
@@ -100,7 +126,8 @@ button {
   }
 
   .dropContent a {
-    color: white;
+    font-family: custom;
+    color: navy;
     right: 0;
     text-decoration: none;
     display: block;
