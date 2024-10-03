@@ -81,7 +81,7 @@ title.innerText = nameList[index];
 //const koreanLink = document.getElementById("korean");
 //koreanLink.href=websiteLink+"?item="+itemList[index]+'&lang=kor';
 
-// iframe 디자인
+
 
 var txtText = '';
 var frame = document.getElementById('itemText');
@@ -89,13 +89,6 @@ frame.onload = function () {
 var body = frame.contentWindow.document.querySelector('body');
 txtText = body.innerHTML;
 
-/*
-body.style.fontSize = '20px';
-body.style.color = 'white';
-body.style.lineHeight = '30px';
-body.style.backgroundColor = 'rgba(52,53,83,255)';
-body.style.margin = '0';
-*/
 
 
 
@@ -156,5 +149,16 @@ audioPlayer.src= audioFileDirectory+"/"+itemNo+lang+".mp3"
 
 
 //이미지로드
-//const mainImage = document.getElementById("mainImage")
-//mainImage.src= mainImageDirectory+"/"+itemNo+".jpeg"
+const firstImage = document.getElementById("first-image")
+firstImage.src= mainImageDirectory+"/"+itemNo+lang+"first"+".png"
+
+const secondImage = document.getElementById("second-image")
+secondImage.src= mainImageDirectory+"/"+itemNo+"second"+".png"
+
+// 다음 페이지와 이전 페이지
+
+const nextLink = document.getElementById("next_nav");
+nextLink.href=websiteLink+"?item="+itemList[mod(index+1,itemLength)]+'&lang='+lang;
+
+const previousLink = document.getElementById("prev_nav");
+previousLink.href=websiteLink+"?item="+itemList[mod(index-1,itemLength)]+'&lang='+lang;
