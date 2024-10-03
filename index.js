@@ -21,7 +21,7 @@ return (number%modulo+modulo)%modulo;
 
 } 
 //웹사이트 링크 수정해야함
-const websiteLink="http://127.0.0.1:5500/index.html";
+const websiteLink="http://127.0.0.1:5501/index.html";
 const textFileDirectory="/textfiles"
 const audioFileDirectory="/mp3files"
 const mainImageDirectory="/images"
@@ -63,29 +63,23 @@ const title = document.getElementById("title");
 title.innerText = nameList[index];
 
 
-//오디오로드
-const audioPlayer = document.getElementById("audio")
-audioPlayer.src= audioFileDirectory+"/"+itemNo+lang+".mp3"
 
-//이미지로드
-const mainImage = document.getElementById("mainImage")
-mainImage.src= mainImageDirectory+"/"+itemNo+".jpeg"
 
 // 다음 페이지와 이전 페이지
 
-const nextLink = document.getElementById("next");
-nextLink.href=websiteLink+"?item="+itemList[mod(index+1,itemLength)]+'&lang='+lang;
+//const nextLink = document.getElementById("next");
+//nextLink.href=websiteLink+"?item="+itemList[mod(index+1,itemLength)]+'&lang='+lang;
 
-const previousLink = document.getElementById("previous");
-previousLink.href=websiteLink+"?item="+itemList[mod(index-1,itemLength)]+'&lang='+lang;
+//const previousLink = document.getElementById("previous");
+//previousLink.href=websiteLink+"?item="+itemList[mod(index-1,itemLength)]+'&lang='+lang;
 
 //언어 변경
 
-const englishLink = document.getElementById("english");
-englishLink.href=websiteLink+"?item="+itemList[index]+'&lang=eng';
+//const englishLink = document.getElementById("english");
+//englishLink.href=websiteLink+"?item="+itemList[index]+'&lang=eng';
 
-const koreanLink = document.getElementById("korean");
-koreanLink.href=websiteLink+"?item="+itemList[index]+'&lang=kor';
+//const koreanLink = document.getElementById("korean");
+//koreanLink.href=websiteLink+"?item="+itemList[index]+'&lang=kor';
 
 // iframe 디자인
 
@@ -116,16 +110,51 @@ function dropDown() {
   document.getElementById("drops").classList.toggle("show");
 }
 
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.button')) {
-    var dropdowns = document.getElementsByClassName("dropContent");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
+// JavaScript to handle page switching
+
+document.getElementById("play-btn").addEventListener("click", function() {
+  document.getElementById("page1").style.display = "none";
+  document.getElementById("page2").style.display = "block";
+});
+const buttons = document.querySelectorAll('.buttons');
+
+function toggleVisibility() {
+  document.getElementById("page1").style.display = "none";
+  document.getElementById("page2").style.display = "block";
+};
+
+document.addEventListener('click', function(event) {
+  // Check if the clicked element is one of the preassigned buttons
+  let clickedInsideButton = false;
+  buttons.forEach(function(button) {
+      if (button.contains(event.target)) {
+          clickedInsideButton = true;
       }
-    }
+  });
+
+  // If the clicked element is not a preassigned button, toggle the div
+  if (!clickedInsideButton) {
+      toggleVisibility();
   }
+});
+
+let otherLang;
+if (lang === "eng") {
+  otherLang = "kor";
+} else {
+  otherLang = "eng"; // Fallback if lang is not "eng"
 }
+
+const langLink1 = document.getElementById("lang-link1");
+langLink1.href=websiteLink+"?item="+itemList[index]+'&lang='+otherLang;
+const langLink2 = document.getElementById("lang-link2");
+langLink2.href=websiteLink+"?item="+itemList[index]+'&lang='+otherLang;
+
+//오디오로드
+const audioPlayer = document.getElementById("audio")
+audioPlayer.src= audioFileDirectory+"/"+itemNo+lang+".mp3"
+
+
+//이미지로드
+//const mainImage = document.getElementById("mainImage")
+//mainImage.src= mainImageDirectory+"/"+itemNo+".jpeg"

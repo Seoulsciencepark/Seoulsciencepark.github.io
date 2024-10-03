@@ -4,21 +4,56 @@
     src: url(GowunDodum-Regular.ttf);
 }
 
-body{
-   /*background-image: url('../images/longer2.jpg');*/
-    background-color: white;
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure html and body take the full height */
 }
 
-audio{
-    width:60%;
+.page {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: none; /* Hide all pages by default */
 }
 
-.audioContainer {
-    margin-top: 0%;
-    display: flex;
+#page1 {
+    display: block;
+}
+
+.first-image {
+
+    height: 100%;
+    width: 100%;
+    display: block;
     justify-content: center;
     align-items: center;
-  }
+    overflow: hidden; /* Ensures the image doesn't overflow the container */
+      
+}
+
+.second-image {
+    width: 100%;
+    display:block;
+}
+
+.audio-player-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    padding: 10px;
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+audio {
+    width: 100%; /* Make the audio player stretch across the screen */
+    max-width: 600px; /* Optional: You can control the maximum width */
+    margin: 0 auto; /* Center it horizontally */
+    display: block;
+}
+
 
 
 iframe { 
@@ -28,26 +63,44 @@ iframe {
     border: none; 
 }
 
-.imageContainer{
-    text-align: center;
-}
-
-.piece-image {
-
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 15px;
-
-}
-
 #title{
     font-family: custom;
     color:black;
     text-align: center;
     margin-bottom: 0;
+    display:none;
 }
 
+#lang-icon{
+    position: absolute;
+    top: 10px; /* Adjust the vertical distance from the top */
+    right: 10px; /* Adjust the horizontal distance from the right */
+    width: 50px; /* Adjust the size of the icon */
+    height: 50px;
+    cursor: pointer;
+}
+
+#play-btn{
+    position: absolute;
+    bottom: 10px; /* Adjust the vertical distance from the top */
+    left: 10px; /* Adjust the horizontal distance from the right */
+    width: 100px; /* Adjust the size of the icon */
+    height:100px;
+    cursor: pointer;
+}
+
+.image-container{
+    position: relative;
+    /*display: inline-block;*/
+    height:100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensures the image doesn't overflow the container */
+
+}
 
 .mainText{
     font-family: custom;
@@ -55,6 +108,7 @@ iframe {
     text-align: left;
     font-size: 20px;
     margin-left: 20px;
+    margin-right: 20px;
 
 }
 
@@ -63,33 +117,6 @@ pre {
     font-size: 20px;
  }
 
- .piece-image {
-    width: 95%;            /* Make the image responsive */
-    border: 2px solid #333;  /* Add a 5px solid border for the frame */
-    border-radius: 10px;     /* Optional: Add rounded corners to the frame */
-}
-
-
-
- .container{
-    width: 90%;
-    margin: auto;
-    border: 1px solid #333;  /* Add a 5px solid border for the frame */
-    border-radius: 10px;     /* Optional: Add rounded corners to the frame */
- }
-
-.changePageContainer{
-    margin: auto;
-
-}
-#previous{
-    float:left;
-    margin-left: 5%;
-}
-#next{
-    float:right;
-    margin-right: 5%;
-}
 
 /*
 .mainText{
@@ -97,53 +124,9 @@ pre {
 }
 */
 
-.dropdown .button{
-    border: none;
-}
-
-button {
-    background-image: url(images/lang.png);
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    height:36px;
-    width: 36px;
-    border: none;
-    background-color: transparent;
-  }
-  
-
-.dropdown {
-    float: right;
-    position: relative;
-    margin-top: 0;
-    margin-right:5%
-    
-  }
-
-  .dropContent{
-    display: none;
-    position: absolute;
-  }
-
-  .dropContent a {
-    font-family: custom;
-    color: navy;
-    right: 0;
-    text-decoration: none;
-    display: block;
-    margin-top: 10%;
-
-  }
 
   .show {
     display:block;
     margin-top: 20px;
     font-size: large;
 }
-#english{
-    margin-top: 10px;
-}
-#korean{
-    margin-top: 20px;
-}
-
