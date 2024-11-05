@@ -1,0 +1,13 @@
+
+.image-container {
+    position: relative;
+    display: inline-block;
+  }
+
+  #next-page{
+    position: absolute;
+    top: 2%;
+    left: 85%;
+
+  }
+
